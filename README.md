@@ -1,24 +1,82 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
+![](https://img.shields.io/badge/ruby-red)
+![](https://img.shields.io/badge/RoR-pink)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Rails Blog App
 
-Things you may want to cover:
+## Project Description
 
-* Ruby version
+The Blog app is a classic example of a blog website. I create a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
-* System dependencies
+## Built With
 
-* Configuration
+- Ruby
+- Ruby on Rails
+- Rubocop
 
-* Database creation
+# Get Started
 
-* Database initialization
+Follow these steps below:
 
-* How to run the test suite
+## Pre-requisites
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+- Ruby
+- Rails
+- PostgreSQL
+```
 
-* Deployment instructions
+## Setup
+Clone the repo and run bundle install in the command line to install the dependencies
 
-* ...
+```bash
+$ git clone https://github.com/omarbabou/rails-blog-app.git
+$ cd rails-blog-app
+```
+
+## Install gems with:
+
+```bash
+$ bundle install
+```
+
+## Install style linters with
+```bash
+$ npm install
+```
+
+## Start rails server (puma)
+
+```bash
+$ rails server
+```
+
+Open [http://localhost:3000/](http://localhost:3000/) in your browser
+
+## Author
+
+👤 **Idrissa Makoba Omar**
+
+- GitHub: [omarbabou](https://github.com/omarbabou)
+- LinkedIn: [Idrissa makoba omar](https://www.linkedin.com/in/idrissa-makoba-omar/)
+- twitter: [BabouOmar3](https://twitter.com/BabouOmar3)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+See [PUBLIC](./LICENSE) license.

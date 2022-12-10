@@ -69,10 +69,12 @@ GEM
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
+    bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    cancancan (3.4.0)
     capybara (3.38.0)
       addressable
       matrix
@@ -87,6 +89,7 @@ GEM
     debug (1.7.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    diff-lcs (1.5.0)
     erubi (1.11.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -102,6 +105,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.6.2)
+    jwt (2.5.0)
     loofah (2.19.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -149,6 +153,10 @@ GEM
       activesupport (= 7.0.4)
       bundler (>= 1.15.0)
       railties (= 7.0.4)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -167,6 +175,23 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rspec-core (3.12.0)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.1)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.11)
+      rspec-expectations (~> 3.11)
+      rspec-mocks (~> 3.11)
+      rspec-support (~> 3.11)
+    rspec-support (3.12.0)
     rubocop (1.39.0)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -179,6 +204,10 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.24.0)
       parser (>= 3.1.1.0)
+    rubocop-rails (2.17.3)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.7.1)
@@ -224,15 +253,21 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap
+  cancancan
   capybara
   debug
   importmap-rails
   jbuilder
+  jwt
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3)
+  rails-controller-testing
+  rspec-rails
   rubocop (>= 1.0, < 2.0)
+  rubocop-rails
   selenium-webdriver
   sprockets-rails
   stimulus-rails

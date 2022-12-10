@@ -14,7 +14,7 @@
   <%= render post%>
    <%if post.comments.length > 0 %>
    <section class="comment-section">
-     <%= render partial:'comments', as: 'comment', collection:post.recents_comments%>
+    <%= render partial:'comments', as: 'comment', collection:post.recents_comments%>
    </section>
    <%end%>
     <%end%>

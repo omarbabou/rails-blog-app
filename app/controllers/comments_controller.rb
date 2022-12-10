@@ -1,31 +1,22 @@
 class CommentsController < ApplicationController
     def new
-      @comment = Comment.new
-    end
-  
-    def create
-      @comment = Comment.new(comment_params)
-      @comment.user = current_user
-      @comment.post_id = params[:post_id]
-  
-      if @comment.save
-        flash[:success] = 'You comment was added to the post'
-        redirect_to user_post_path(@comment.post_id, @comment.user)
-      else
-        flash.now[:error] = 'AN error occured, please try again'
-        render :new, status: :unprocessable_entity
+      respond_to do |format|
+        format.html { render :new, locals: { comment: Comment.new } }
       end
     end
   
-    def destroy
-      @comment = Comment.find_by(id: params[:id])
-  
-      if @comment.destroy
-        flash[:success] = 'You comment was added to the post'
-        redirect_to user_post_path(params[:user_id], params[:post_id])
+    def create
+      user = current_user
+      post = current_post
+      comment = Comment.new(comment_params)
+      comment.author = user
+      comment.post = post
+      if comment.save
+        flash[:success] = 'Comment saved successfully'
+        redirect_to user_post_url(id: post.id)
       else
-        flash.now[:error] = 'AN error occured, please try again'
-        render :new, status: :unprocessable_entity
+        flash[:error] = 'Error: Comment could not be saved'
+        redirect_to new_user_post_comment_url
       end
     end
   

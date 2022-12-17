@@ -13,6 +13,28 @@ class ApplicationController < ActionController::Base
       User.find(params[:user_id])
     end
 
+  def all_users
+    User.all.order('id asc')
+  end
+
+  def current_post
+    User.find(params[:user_id]).posts.find(params[:id] || params[:post_id])
+  end
+
+  def all_users_post_controller
+    User.find(params[:user_id])
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name photo bio])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name photo bio])
+    devise_parameter_sanitizer.permit(:sign_in) do |user_params|
+      user_params.permit(:username, :email)
+    end
+  end
+end
     protected
   
     def configure_permitted_parameters

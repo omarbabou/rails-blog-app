@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
 
-    def create
+  def create
     @like = current_user.likes.new(like_params)
     @like.update_likes_counter
     respond_to do |format|
@@ -11,10 +11,10 @@ class LikesController < ApplicationController
                          'Something went wrong'
                        end
       format.html { redirect_to request.path }
-      end  
-    end  
-    
-    def like_params
-        params.require(:like).permit(:author_id, :post_id)
     end
   end
+
+  def like_params
+    params.require(:like).permit(:author_id, :post_id)
+  end
+end

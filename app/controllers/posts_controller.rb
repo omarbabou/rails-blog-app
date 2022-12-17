@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @author = @post.author
-  end  
+  end
 
   def post_params
     params.require(:post).permit(:author_id, :title, :text, :comments_counter, :likes_counter)

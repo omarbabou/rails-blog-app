@@ -10,6 +10,10 @@
   </head>
 
   <body>
+     <p id="red"><%=flash[:error]%></p> 
+      <p id="blue"><%=flash[:success]%></p> 
+      <p class="alert"><%= alert %></p>
+        <%= yield %>
     <%if flash[:error]%>
        <p id="red"><%=flash[:error]%></p> 
      <%end%>

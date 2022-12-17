@@ -1,9 +1,28 @@
 class CommentsController < ApplicationController
-    def new
-      respond_to do |format|
-        format.html { render :new, locals: { comment: Comment.new } }
-      end
+  before_action :authenticate_user!
+
+  def create
+    @comment = current_user.comments.new(comment_params)
+    @comment.update_comments_counter
+    respond_to do |format|
+      flash[:notice] = if @comment.save
+                         'Comment created Successfully'
+                       else
+                         'something went wrong'
+                       end
+      format.html { redirect_to request.path }
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+  end
+
+  def comment_params
+    params.require(:comment).permit(:author_id, :post_id, :text)
+  end
+end
   
     def create
       user = current_user
